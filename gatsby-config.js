@@ -32,6 +32,23 @@ module.exports = {
       }
     },
     {
+      resolve: "gatsby-source-sanity",
+      options: {
+        projectId: "im9as0zq",
+        dataset: "production",
+        overlayDrafts: true,
+        watchMode: true,
+        token:
+          "skA2w8j0qC7hBFvhTQwvOKTWCreUIcOsCB8uBthfF5xx0py7P1EAPmqjgbX8UnTYuCOSt43V91nyu5j8gwdyAWgYpXtb6x8Qieero7S2fDUVslF07LxCGqlaJOwds1fqef2KND8pIVBLWEwRt4RgU9Ye9wtzgdBaoyXGm9O4NCpDxhHUlucH"
+      }
+    },
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `enter_visual_`
+      }
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `Mbk`,

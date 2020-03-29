@@ -3,10 +3,10 @@ import Header from "../components/Header";
 import "../styles/app.scss";
 import Footer from "../components/Footer";
 
-const DefaultLayout = ({ children }) => {
+const DefaultLayout = ({ children, headerBg }) => {
   return (
     <div>
-      <Header />
+      <Header headerBg={headerBg} />
       <main className="site-main">{children}</main>
       <Footer className="footer" />
     </div>

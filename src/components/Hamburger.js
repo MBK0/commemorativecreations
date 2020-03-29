@@ -3,36 +3,18 @@ import styled from "styled-components";
 
 function Hmburger({ color }) {
   const Container = styled.div`
-    .Hamburger {
-      position: absolute;
-      width: 24px;
-      height: 24px;
       b {
         display: block;
         right: 0px;
-        position: absolute;
-        height: 2px;
-        width: 24px;
-        background: ${color ? color : "#555"};
+        position: relative;
+        height: 3px;
+        width: 25px;
+        background: ${color ? color : "#fff"};
         border-radius: 4px;
         transform-origin: 0 50%;
-      }
-      b:first-child {
-        top: 12px;
         transform: scaleX(1);
         opacity: 1;
-      }
-      b:nth-child(2) {
-        top: 19px;
-        transform: scaleX(1);
-        opacity: 1;
-        width: 20px;
-      }
-      b:last-child {
-        top: 26px;
-        width: 14px;
-        transform: scaleX(1);
-        opacity: 1;
+        margin-bottom: 4px;
       }
 
       &:hover {
@@ -55,7 +37,6 @@ function Hmburger({ color }) {
       100% {
         transform: scaleX(1);
       }
-    }
   `;
   return (
     <Container>
