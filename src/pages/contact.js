@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Popup from "../components/Popup";
+import Popup from "../components/popup";
 import styled from "styled-components";
 import Layout from "../templates/DefaultLayout";
 import Seo from "../components/seo";
