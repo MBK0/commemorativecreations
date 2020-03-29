@@ -25,13 +25,6 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-purgecss`,
-      options: {
-        printRejected: true,
-        purgeOnly: ["styles/", "components/"]
-      }
-    },
-    {
       resolve: "gatsby-source-sanity",
       options: {
         projectId: "im9as0zq",
