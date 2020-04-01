@@ -182,8 +182,8 @@ const Packages = () => {
           </div>
           <div className="package">
             <div className="package-top">
-              <h3>Silver</h3>
-              <p className="price">250$</p>
+              <h3>Platinum </h3>
+              <p className="price">350$</p>
             </div>
             <ul>
               <li>
