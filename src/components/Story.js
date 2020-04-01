@@ -34,7 +34,7 @@ const Container = styled.div`
     font-weight: 600;
     margin-bottom: 20px;
   }
-  video {
+  img {
     width: 100%;
     height: 100%;
   }
@@ -58,29 +58,31 @@ function Story() {
     <Container>
       <div className="wrapper">
         <div className="story-column story-column-1">
-          <video autoPlay muted loop>
-            <source
-              src={`${require("../images/videos/Milly_Promo_480p.mp4")}`}
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
+          <img
+            src={`${require("../images/gallery/photo-256887_960_720.jpg")}`}
+            alt="story"
+          />
         </div>
         <div className="story-column story-column-2">
           <h2 className="story-h2">Our Story</h2>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s.Lorem Ipsum is simply dummy text of the
-            printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s.
+            We are innovative and caring in our work, dedicated in providing
+            high-quality long-lasting media services which capture true moments
+            in time.
           </p>
           <p>
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s.Lorem Ipsum is simply dummy text of the
-            printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s.
+            Remembering beloved family and friends through your heart, thoughts
+            and mind…to once again take pleasure in treasured moments
+            shared…what better way to do this than with a beautifully presented
+            photo-video commemoration.
+          </p>
+          <p>
+            We will understand your feelings and emotions and dedicate the
+            necessary time to capture every page of your story.
+          </p>
+          <p>
+            We would love to take this opportunity and work with you to find the
+            perfect balance of photo and music video for your special needs.
           </p>
         </div>
       </div>

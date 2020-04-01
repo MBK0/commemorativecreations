@@ -50,7 +50,7 @@ const Container = styled.div`
     transition: all 0.7s ease;
   }
   .insta:hover .insta-info {
-    opacity: 0;
+    z-index: -1;
   }
   h5 {
     font-size: 32px;
@@ -68,6 +68,13 @@ const Container = styled.div`
   video {
     width: 100%;
     height: 100%;
+  }
+  p {
+    color: #fff;
+    max-width: 1400px;
+    margin: auto;
+    margin-top: 6em;
+    line-height: 2em;
   }
   @media only screen and (max-width: 640px) {
     h2 {
@@ -94,8 +101,8 @@ function Services({ data }) {
   const captions2 = [
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
     "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry",
-    "Lorem Ipsum is simply dummy text of the printing and typesetting industry"
+    "Let's not forget that special friend that made our life wholesome, with Commemorative-creations we can give you a memory that can last forever",
+    "Tell your unique love story with a beautiful photo-video production, we combine your images and video clips into a moving pictorial collage with the perfect combination of music."
   ];
   return (
     <Container>
@@ -103,7 +110,7 @@ function Services({ data }) {
       <div className="insta-grid">
         {videos.map((video, index) => (
           <div className="insta" key={video}>
-            <video autoPlay muted loop>
+            <video controls>
               <source
                 src={`${require(`../images/videos/${video}`)}`}
                 type="video/mp4"
@@ -117,6 +124,12 @@ function Services({ data }) {
           </div>
         ))}
       </div>
+      <p>
+        • Funerals • Birthdays • Anniversaries • Pet Memorials • Baby Years •
+        Reunions • Entering a nursing home • Friendships • Engagement •
+        Retirement • Milestones • Travel • Milestones for organisations •
+        Promotions for business • Promote events...
+      </p>
     </Container>
   );
 }

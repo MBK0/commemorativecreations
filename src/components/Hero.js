@@ -201,7 +201,7 @@ const Hero = () => {
         className="hero-bg"
       />
       <div className="hero-content">
-        <h1 className="hero-h1">Welcome To Name</h1>
+        <h1 className="hero-h1">Welcome To Commemorative Creations</h1>
         <h6 className="hero-h6">
           Making Your Dreams Come True With Our{" "}
           <span className="hero-span">Creativity</span>

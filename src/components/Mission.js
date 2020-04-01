@@ -77,23 +77,20 @@ function Mission() {
         <div className="story-column story-column-2">
           <h2 className="story-h2">Our Mission</h2>
           <p>
-            CatchCo is a creative photo studio providing a great number of photo
-            and video services. We are passionate about photography and gladly
-            share this passion with you. CatchCo is a team of enthusiasts who do
-            their best to meet any client’s’ demand and provide them with
-            perfectly made photos. We capture the moments of your life! We
-            specialize in studio and location photography together with video
-            recording and clipart production. We are glad to create for you a
-            unique photo session totally reflecting your individuality and
-            character.
+            At Commemorative Creations Our work is provided to you in quality
+            1080P high definition graphics enabling it to be shown across any
+            commercial media source.
           </p>
           <p>
-            Founded in 2010 by renowned photographer North Sullivan, and located
-            in a retro warehouse in New York. Ultimately our mission is to help
-            people to see beauty in themselves and the world around us while
-            creating wonderful works of art that will be passed down through
-            generations.
+            We supply you multiple resolution video options which can even be
+            displayed via your mobile device where download limits may apply.
           </p>
+          <p>
+            We offer a vast library of beautiful music and will liaise with you
+            on your preferences.
+          </p>
+          <p>We adhere strictly to applicable copyright Infringement laws. </p>
+          <p>A strict privacy policy is also guaranteed.</p>
         </div>
       </div>
     </Container>

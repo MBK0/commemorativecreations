@@ -6,6 +6,7 @@ import Testimonials from "../components/Testimonials";
 import Instagram from "../components/Instagram";
 import Services from "../components/Services";
 import Story from "../components/Story";
+import Packages from "../components/Packages";
 
 const IndexPage = ({ data }) => {
   return (
@@ -14,6 +15,7 @@ const IndexPage = ({ data }) => {
       <Hero />
       <Story />
       <Services />
+      <Packages />
       <Testimonials />
       <Instagram />
     </Layout>

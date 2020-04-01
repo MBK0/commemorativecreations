@@ -100,10 +100,10 @@ export const AboutHero = () => {
     <Container>
       <Img fluid={data.file.childImageSharp.fluid} alt="bg" className="bg" />
       <div className="about-content">
-        <h1>Need Some Professional Work?</h1>
+        <h1>Welcome to Commemorative Creations</h1>
         <p>
-          Contact our Customer Service representative to make an appointment and
-          to answer all your questions!
+          The memories we can create for you and your loved ones will provide
+          you with a timeless keepsake.
         </p>
         <button className="btn">
           <Link to="/contact">Book Now</Link>
