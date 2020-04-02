@@ -72,7 +72,6 @@ const Container = styled.div`
     color: #fff;
     font-weight: 700;
   }
-
   .package-top {
     width: 100%;
     display: flex;
