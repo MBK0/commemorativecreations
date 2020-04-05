@@ -58,10 +58,7 @@ function Story() {
     <Container>
       <div className="wrapper">
         <div className="story-column story-column-1">
-          <img
-            src={`${require("../images/gallery/photo-256887_960_720.jpg")}`}
-            alt="story"
-          />
+          <img src={`${require("../images/story.jpg")}`} alt="story" />
         </div>
         <div className="story-column story-column-2">
           <h2 className="story-h2">Our Story</h2>

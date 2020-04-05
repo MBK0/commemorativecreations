@@ -117,7 +117,7 @@ function Services({ data }) {
               poster={`${require(`../images/p${index + 1}.png`)}`}
             >
               <source
-                src={`${require(`../images/videos/${video}`)}`}
+                src={`${require(`../images/services/${video}`)}`}
                 type="video/mp4"
               />
               Your browser does not support the video tag.
