@@ -66,11 +66,19 @@ const Container = styled.div`
     border: 2px solid #d09900;
     margin: 2em auto;
   }
+  span {
+    color: #d09900;
+    font-weight: 600;
+  }
   h3,
   .price {
     font-size: 30px;
     color: #fff;
     font-weight: 700;
+    span {
+      font-size: 14px;
+      color: #fff;
+    }
   }
   .package-top {
     width: 100%;
@@ -82,10 +90,6 @@ const Container = styled.div`
   }
   li {
     margin: 10px 40px;
-  }
-  span {
-    color: #d09900;
-    font-weight: 600;
   }
 `;
 const Packages = () => {
@@ -103,7 +107,9 @@ const Packages = () => {
           <div className="package">
             <div className="package-top">
               <h3>Silver</h3>
-              <p className="price">250$</p>
+              <p className="price">
+                250 <span>AUD</span>
+              </p>
             </div>
 
             <ul>
@@ -143,7 +149,9 @@ const Packages = () => {
           <div className="package">
             <div className="package-top">
               <h3>Gold</h3>
-              <p className="price">300$</p>
+              <p className="price">
+                300 <span>AUD</span>
+              </p>
             </div>
             <ul>
               <li>
@@ -182,7 +190,9 @@ const Packages = () => {
           <div className="package">
             <div className="package-top">
               <h3>Platinum </h3>
-              <p className="price">350$</p>
+              <p className="price">
+                350 <span>AUD</span>
+              </p>
             </div>
             <ul>
               <li>
