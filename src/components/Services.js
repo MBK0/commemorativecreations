@@ -91,19 +91,19 @@ function Services({ data }) {
     "Baby_Promo_1_480p.mp4",
     "Milly_Promo_480p.mp4",
     "Pet_Promo_480p.mp4",
-    "Wedding_Promo_480p.mp4"
+    "Wedding_Promo_480p.mp4",
   ];
   const captions1 = [
     "Babies Christening",
     "Funerals",
     "Pet funerals",
-    "Wedding"
+    "Wedding",
   ];
   const captions2 = [
     "There is nothing quite as exciting as waiting for the arrival of a new baby, The most precious jewels, you’ll ever have around your neck, are the arms of your children. Capture the joy of your baby’s memorable moments from the first breath to the first step ",
     "How we tell our story to ourselves and others, can have a significant impact on our life, sharing moments of those we’ve lost is how we keep from really losing them. Commemorative Creations can bring your story together by providing you with a memorial video produced to enhance your loved one’s memories",
     "Let's not forget that special friend that made our life wholesome, with Commemorative-creations we can give you a memory that can last forever",
-    "Tell your unique love story with a beautiful photo-video production, we combine your images and video clips into a moving pictorial collage with the perfect combination of music."
+    "Tell your unique love story with a beautiful photo-video production, we combine your images and video clips into a moving pictorial collage with the perfect combination of music.",
   ];
   return (
     <Container>
@@ -111,7 +111,11 @@ function Services({ data }) {
       <div className="insta-grid">
         {videos.map((video, index) => (
           <div className="insta" key={video}>
-            <video controls>
+            <video
+              controls
+              preload="none"
+              poster={`${require(`../images/p${index + 1}.png`)}`}
+            >
               <source
                 src={`${require(`../images/videos/${video}`)}`}
                 type="video/mp4"
