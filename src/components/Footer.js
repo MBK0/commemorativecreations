@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 const Container = styled.div`
-  padding: 20px 0;
+  padding: 40px 0;
   color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
   background: #070707;
