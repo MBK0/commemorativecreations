@@ -87,10 +87,16 @@ const Container = styled.div`
 export const AboutHero = () => {
   const data = useStaticQuery(graphql`
     {
-      file(relativePath: { eq: "bg2.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1920, maxHeight: 600) {
-            ...GatsbyImageSharpFluid
+      allSanityAbout(sort: { fields: _updatedAt, order: DESC }, limit: 1) {
+        nodes {
+          title
+          subtilte
+          mainImage {
+            asset {
+              fluid(maxWidth: 1920, maxHeight: 600) {
+                ...GatsbySanityImageFluid
+              }
+            }
           }
         }
       }
@@ -98,13 +104,14 @@ export const AboutHero = () => {
   `);
   return (
     <Container>
-      <Img fluid={data.file.childImageSharp.fluid} alt="bg" className="bg" />
+      <Img
+        fluid={data.allSanityAbout.nodes[0].mainImage.asset.fluid}
+        alt="bg"
+        className="bg"
+      />
       <div className="about-content">
-        <h1>Welcome to Commemorative Creations</h1>
-        <p>
-          The memories we can create for you and your loved ones will provide
-          you with a timeless keepsake.
-        </p>
+        <h1>{data.allSanityAbout.nodes[0].title}</h1>
+        <p>{data.allSanityAbout.nodes[0].subtilte}</p>
         <button className="btn">
           <Link to="/contact">Book Now</Link>
         </button>

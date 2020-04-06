@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import { graphql, useStaticQuery, Link } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 import Img from "gatsby-image";
 const Container = styled.div`
   width: 100%;
@@ -64,7 +64,7 @@ const Container = styled.div`
 const CategoryTab = ({ catsArray }) => {
   const data = useStaticQuery(graphql`
     {
-      allSanityPost(limit: 50, sort: { fields: _createdAt, order: DESC }) {
+      allSanityPicture(limit: 50, sort: { fields: _createdAt, order: DESC }) {
         nodes {
           slug {
             current
@@ -89,8 +89,8 @@ const CategoryTab = ({ catsArray }) => {
     let array3 = [];
     let array4 = [];
     let j = 0;
-    data.allSanityPost.nodes.map(node => {
-      node.categories.map(cat => {
+    data.allSanityPicture.nodes.map((node) => {
+      node.categories.map((cat) => {
         array1.push({ category: cat.title, node: node });
         return null;
       });
@@ -104,7 +104,7 @@ const CategoryTab = ({ catsArray }) => {
         j = i;
       }
     }
-    array2.map(elem => {
+    array2.map((elem) => {
       array3.push(elem.slice(0, 5));
       return null;
     });
@@ -112,7 +112,7 @@ const CategoryTab = ({ catsArray }) => {
       array4.push(
         <TabPanel key={index}>
           <div className={`tab-card tab-card-${index}`}>
-            {elem.map(item => (
+            {elem.map((item) => (
               <Img
                 key={item.node.slug.current}
                 fluid={item.node.mainImage.asset.fluid}
@@ -130,7 +130,7 @@ const CategoryTab = ({ catsArray }) => {
     <Container>
       <Tabs>
         <TabList>
-          {catsArray.map(elem => (
+          {catsArray.map((elem) => (
             <Tab key={elem}>{elem}</Tab>
           ))}
         </TabList>

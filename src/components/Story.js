@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { graphql, useStaticQuery } from "gatsby";
+import BlockContent from "./block-content";
 const Container = styled.div`
   padding: 10em 10px;
   background: #070707;
@@ -54,33 +56,35 @@ const Container = styled.div`
   }
 `;
 function Story() {
+  const data = useStaticQuery(graphql`
+    {
+      allSanityHome(sort: { fields: _updatedAt, order: DESC }, limit: 1) {
+        nodes {
+          _rawStory
+          storytitle
+          storyImage {
+            asset {
+              fluid(maxWidth: 1920, maxHeight: 1080) {
+                src
+              }
+            }
+          }
+        }
+      }
+    }
+  `);
   return (
     <Container>
       <div className="wrapper">
         <div className="story-column story-column-1">
-          <img src={`${require("../images/story.jpg")}`} alt="story" />
+          <img
+            src={data.allSanityHome.nodes[0].storyImage.asset.fluid.src}
+            alt="story"
+          />
         </div>
         <div className="story-column story-column-2">
-          <h2 className="story-h2">Our Story</h2>
-          <p>
-            We are innovative and caring in our work, dedicated in providing
-            high-quality long-lasting media services which capture true moments
-            in time.
-          </p>
-          <p>
-            Remembering beloved family and friends through your heart, thoughts
-            and mind…to once again take pleasure in treasured moments
-            shared…what better way to do this than with a beautifully presented
-            photo-video commemoration.
-          </p>
-          <p>
-            We will understand your feelings and emotions and dedicate the
-            necessary time to capture every page of your story.
-          </p>
-          <p>
-            We would love to take this opportunity and work with you to find the
-            perfect balance of photo and music video for your special needs.
-          </p>
+          <h2 className="story-h2">{data.allSanityHome.nodes[0].storytitle}</h2>
+          <BlockContent blocks={data.allSanityHome.nodes[0]._rawStory} />
         </div>
       </div>
     </Container>

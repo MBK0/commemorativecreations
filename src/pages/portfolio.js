@@ -22,7 +22,7 @@ const Container = styled.div`
 function Services() {
   const data = useStaticQuery(graphql`
     {
-      allSanityPost(limit: 10) {
+      allSanityPicture(limit: 10) {
         nodes {
           slug {
             current
@@ -53,7 +53,7 @@ function Services() {
           autoPlay={true}
           interval={7000}
         >
-          {data.allSanityPost.nodes.map(node => (
+          {data.allSanityPicture.nodes.map((node) => (
             <div className="slide">
               <Img
                 fluid={node.mainImage.asset.fluid}

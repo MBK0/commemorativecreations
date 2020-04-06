@@ -1,15 +1,15 @@
 import React from "react";
 import styled from "styled-components";
-import Img from "gatsby-image";
+import BlockContent from "./block-content";
 import { useStaticQuery, graphql } from "gatsby";
 const Container = styled.div`
   padding: 12em 10px;
   background: #0d0d0d;
   color: #fff;
   .wrapper {
-    display: flex;
-    max-width: 1700px;
+    max-width: 1000px;
     margin: auto;
+    text-align: center;
   }
   .story-column {
     margin: 0em 2vw;
@@ -18,13 +18,13 @@ const Container = styled.div`
   }
   h2 {
     display: block;
+    text-align: center;
     margin: auto;
     font-weight: 700;
     font-size: 50px;
     line-height: 64px;
     text-transform: uppercase;
-    margin-bottom: 45px;
-    text-align: left;
+    margin-bottom: 60px;
     width: 100%;
     font-weight: 700;
     box-sizing: border-box;
@@ -35,7 +35,7 @@ const Container = styled.div`
     line-height: 30px !important;
     font-weight: 400;
     margin-bottom: 20px;
-    text-align: left;
+    text-align: center;
   }
   video {
     width: 100%;
@@ -59,11 +59,10 @@ const Container = styled.div`
 function Mission() {
   const data = useStaticQuery(graphql`
     {
-      file(relativePath: { eq: "about.jpg" }) {
-        childImageSharp {
-          fluid(maxWidth: 770, maxHeight: 440) {
-            ...GatsbyImageSharpFluid
-          }
+      allSanityAbout(sort: { fields: _updatedAt, order: DESC }, limit: 1) {
+        nodes {
+          heading
+          _rawBody
         }
       }
     }
@@ -71,27 +70,8 @@ function Mission() {
   return (
     <Container>
       <div className="wrapper">
-        <div className="story-column story-column-1">
-          <Img fluid={data.file.childImageSharp.fluid} alt="bg" />
-        </div>
-        <div className="story-column story-column-2">
-          <h2 className="story-h2">Our Mission</h2>
-          <p>
-            At Commemorative Creations Our work is provided to you in quality
-            1080P high definition graphics enabling it to be shown across any
-            commercial media source.
-          </p>
-          <p>
-            We supply you multiple resolution video options which can even be
-            displayed via your mobile device where download limits may apply.
-          </p>
-          <p>
-            We offer a vast library of beautiful music and will liaise with you
-            on your preferences.
-          </p>
-          <p>We adhere strictly to applicable copyright Infringement laws. </p>
-          <p>A strict privacy policy is also guaranteed.</p>
-        </div>
+        <h2 className="story-h2">{data.allSanityAbout.nodes[0].heading}</h2>
+        <BlockContent blocks={data.allSanityAbout.nodes[0]._rawBody} />
       </div>
     </Container>
   );

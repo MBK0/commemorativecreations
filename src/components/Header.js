@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Hamburger from "./Hamburger";
 import SideBar from "./SideBar";
-import { Link } from "gatsby";
+import { useStaticQuery, graphql, Link } from "gatsby";
+import Img from "gatsby-image";
 const Container = styled.div`
   .header-wrapper {
     display: flex;
@@ -13,23 +14,14 @@ const Container = styled.div`
     z-index: 7;
     width: 100%;
     transition: all 0.5s;
-    background: ${props => (props.headerBg ? props.headerBg : "transparnt")};
+    background: ${(props) => (props.headerBg ? props.headerBg : "transparnt")};
   }
   .nav-item {
     display: flex;
   }
   .logo {
-    font-family: "Kalam", sans-serif;
-    margin-right: 60px;
-    font-size: 16px;
-    font-weight: 900;
-    position: relative;
-    color: #d09900;
-    &:hover {
-      &:after {
-        transform: scaleX(0) !important;
-      }
-    }
+    width: 200px;
+    height: 90px;
   }
   h5 {
     font-size: 14px;
@@ -121,13 +113,28 @@ const Header = ({ headerBg }) => {
       }
     }
   });
+  const data = useStaticQuery(graphql`
+    {
+      file(relativePath: { eq: "logo.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 1920, maxHeight: 1080) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
   const [SideBarIsActive, toggleSideBar] = useState(false);
   return (
     <Container headerBg={headerBg}>
       <div className="header-wrapper">
         <div className="nav-item">
           <Link to="/">
-            <h5 className="logo">Studio Logo</h5>
+            <Img
+              fluid={data.file.childImageSharp.fluid}
+              alt="logo"
+              className="logo"
+            />
           </Link>
         </div>
         <div className="nav-item">

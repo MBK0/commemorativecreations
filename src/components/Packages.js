@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { graphql, StaticQuery, Link } from "gatsby";
-import Image from "gatsby-image";
+import { graphql, useStaticQuery, Link } from "gatsby";
 const Container = styled.div`
   padding: 10em 10px;
   width: 100%;
@@ -93,6 +92,22 @@ const Container = styled.div`
   }
 `;
 const Packages = () => {
+  const data = useStaticQuery(graphql`
+    {
+      allSanityPackages {
+        nodes {
+          price
+          packageFeatures {
+            description
+          }
+          nbrphotos
+          nbrminutes
+          name
+          currency
+        }
+      }
+    }
+  `);
   return (
     <Container>
       <h2>Our Packages</h2>
@@ -104,130 +119,32 @@ const Packages = () => {
           about.
         </p>
         <div className="packages">
-          <div className="package">
-            <div className="package-top">
-              <h3>Silver</h3>
-              <p className="price">
-                250 <span>AUD</span>
-              </p>
-            </div>
+          {data.allSanityPackages.nodes.map((node) => (
+            <div className="package">
+              <div className="package-top">
+                <h3>{node.name}</h3>
+                <p className="price">
+                  {node.price} <span>{node.currency}</span>
+                </p>
+              </div>
 
-            <ul>
-              <li>
-                Up to <span>70</span> photos and short videos
-              </li>
-              <li>
-                Approximately <span>seven</span> minutes of viewing & music to
-                accompany the photo slideshow
-              </li>
-              <li>A photo slideshow with video clips</li>
-              <li>
-                DVDs produced in high-definition, widescreen (16:9) USB and a
-                digital link
-              </li>
-              <li>Basic photo enhancements as required</li>
-              <li>Incorporate digital snaps, paper photos and video</li>
-              <li>
-                Scanning old photos and negatives including removing any dust,
-                red eye, minor scratches
-              </li>
-              <li>Full crop of photo </li>
-              <li>Presentations with captions, transitions and panning</li>
-              <li>
-                Royalty free soundtracks or your choice of music for personal
-                use only
-              </li>
-              <li>Production of full HD 1080P DVD </li>
-              <li>
-                Production in Lower resolution suits all other portable players
-              </li>
-            </ul>
-            <button className="btn">
-              <Link to="/contact">Try</Link>
-            </button>
-          </div>
-          <div className="package">
-            <div className="package-top">
-              <h3>Gold</h3>
-              <p className="price">
-                300 <span>AUD</span>
-              </p>
+              <ul>
+                <li>
+                  Up to <span>{node.nbrphotos}</span> photos and short videos
+                </li>
+                <li>
+                  Approximately <span>{node.nbrminutes}</span> minutes of
+                  viewing & music to accompany the photo slideshow
+                </li>
+                {node.packageFeatures.map((feature) => (
+                  <li>{feature.description}</li>
+                ))}
+              </ul>
+              <button className="btn">
+                <Link to="/contact">Buy</Link>
+              </button>
             </div>
-            <ul>
-              <li>
-                Up to <span>100</span> photos and short videos
-              </li>
-              <li>
-                Approximately <span>twelve</span> minutes of viewing & music to
-                accompany the photo slideshow
-              </li>
-              <li>A photo slideshow with video clips</li>
-              <li>
-                DVDs produced in high-definition, widescreen (16:9) USB and a
-                digital link
-              </li>
-              <li>Basic photo enhancements as required</li>
-              <li>Incorporate digital snaps, paper photos and video</li>
-              <li>
-                Scanning old photos and negatives including removing any dust,
-                red eye, minor scratches
-              </li>
-              <li>Full crop of photo </li>
-              <li>Presentations with captions, transitions and panning</li>
-              <li>
-                Royalty free soundtracks or your choice of music for personal
-                use only
-              </li>
-              <li>Production of full HD 1080P DVD </li>
-              <li>
-                Production in Lower resolution suits all other portable players
-              </li>
-            </ul>
-            <button className="btn">
-              <Link to="/contact">Try</Link>
-            </button>
-          </div>
-          <div className="package">
-            <div className="package-top">
-              <h3>Platinum </h3>
-              <p className="price">
-                350 <span>AUD</span>
-              </p>
-            </div>
-            <ul>
-              <li>
-                Up to <span>150</span> photos and short videos
-              </li>
-              <li>
-                Approximately <span>seventeen</span> minutes of viewing & music
-                to accompany the photo slideshow
-              </li>
-              <li>A photo slideshow with video clips</li>
-              <li>
-                DVDs produced in high-definition, widescreen (16:9) USB and a
-                digital link
-              </li>
-              <li>Basic photo enhancements as required</li>
-              <li>Incorporate digital snaps, paper photos and video</li>
-              <li>
-                Scanning old photos and negatives including removing any dust,
-                red eye, minor scratches
-              </li>
-              <li>Full crop of photo </li>
-              <li>Presentations with captions, transitions and panning</li>
-              <li>
-                Royalty free soundtracks or your choice of music for personal
-                use only
-              </li>
-              <li>Production of full HD 1080P DVD </li>
-              <li>
-                Production in Lower resolution suits all other portable players
-              </li>
-            </ul>
-            <button className="btn">
-              <Link to="/contact">Try</Link>
-            </button>
-          </div>
+          ))}
         </div>
       </div>
     </Container>
