@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
+import Img from "gatsby-image";
 const Container = styled.div`
   padding: 5em 10px 8em 10px;
   text-align: center;
@@ -51,7 +52,8 @@ const Container = styled.div`
     transition: all 0.7s ease;
   }
   .insta:hover .insta-info {
-    z-index: -1;
+    /* z-index: -1; */
+    opacity: 0;
   }
   h5 {
     font-size: 32px;
@@ -67,7 +69,7 @@ const Container = styled.div`
     color: #ccc;
     line-height: 1.5em;
   }
-  video {
+  img {
     width: 100%;
     height: 100%;
   }
@@ -77,6 +79,9 @@ const Container = styled.div`
     margin: auto;
     margin-top: 6em;
     line-height: 2em;
+  }
+  .gatsby-image-wrapper {
+    height: 100%;
   }
   @media only screen and (max-width: 640px) {
     h2 {
@@ -94,6 +99,13 @@ function Services() {
         nodes {
           name
           paragraph
+          bg {
+            asset {
+              fluid(maxWidth: 1920, maxHeight: 1080) {
+                ...GatsbySanityImageFluid
+              }
+            }
+          }
         }
       }
       allServices: sanityAllServices {
@@ -107,17 +119,7 @@ function Services() {
       <div className="insta-grid">
         {data.service.nodes.map((node, index) => (
           <div className="insta" key={node}>
-            <video
-              controls
-              preload="none"
-              poster={`${require(`../images/${node.name}.png`)}`}
-            >
-              <source
-                src={`${require(`../images/services/${node.name}.mp4`)}`}
-                type="video/mp4"
-              />
-              Your browser does not support the video tag.
-            </video>
+            <Img fluid={node.bg.asset.fluid} />
             <div className="insta-info">
               <h5>{node.name}</h5>
               <h6>{node.paragraph}</h6>

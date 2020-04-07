@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { graphql, useStaticQuery, Link } from "gatsby";
+import { graphql, useStaticQuery } from "gatsby";
 const Container = styled.div`
   padding: 10em 10px;
   width: 100%;
@@ -91,7 +91,7 @@ const Container = styled.div`
     margin: 10px 40px;
   }
 `;
-const Packages = () => {
+const Packages = ({ SetOrderFormIsActive, SetPackageName }) => {
   const data = useStaticQuery(graphql`
     {
       allSanityPackages {
@@ -140,8 +140,11 @@ const Packages = () => {
                   <li>{feature.description}</li>
                 ))}
               </ul>
-              <button className="btn">
-                <Link to="/contact">Buy</Link>
+              <button className="btn" onClick={() => {
+                SetPackageName(node.name)
+                SetOrderFormIsActive(1)
+                }}>
+                Buy
               </button>
             </div>
           ))}

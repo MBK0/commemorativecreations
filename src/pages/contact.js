@@ -102,6 +102,7 @@ const Container = styled.div`
   iframe {
     width: 100%;
     position: relative;
+    margin: 0 !important;
   }
   .mapouter {
     height: 450px;
@@ -173,7 +174,7 @@ const Contact = () => {
               width="600"
               height="450"
               id="gmap_canvas"
-              src="https://maps.google.com/maps?q=melborn%20australia&t=&z=13&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=20%20City%20Vista%20Cct%2C%20Cranbourne%20West%2C%20Victoria%203977&t=&z=13&ie=UTF8&iwloc=&output=embed"
               frameborder="0"
               scrolling="no"
               marginheight="0"
