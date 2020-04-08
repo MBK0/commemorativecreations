@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Hamburger from "./Hamburger";
 import SideBar from "./SideBar";
-import { useStaticQuery, graphql, Link } from "gatsby";
-import Img from "gatsby-image";
+import { Link } from "gatsby";
 const Container = styled.div`
   .header-wrapper {
     display: flex;
@@ -113,30 +112,10 @@ const Header = ({ headerBg }) => {
       }
     }
   });
-  const data = useStaticQuery(graphql`
-    {
-      file(relativePath: { eq: "logo.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 1920, maxHeight: 1080) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `);
   const [SideBarIsActive, toggleSideBar] = useState(false);
   return (
     <Container headerBg={headerBg}>
       <div className="header-wrapper">
-        <div className="nav-item">
-          <Link to="/">
-            <Img
-              fluid={data.file.childImageSharp.fluid}
-              alt="logo"
-              className="logo"
-            />
-          </Link>
-        </div>
         <div className="nav-item">
           <Link activeClassName="active-link" to="/">
             <h5 className="nav-link"> Home</h5>

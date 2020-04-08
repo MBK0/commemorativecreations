@@ -48,23 +48,31 @@ const Container = styled.div`
   }
   .tab-img {
     width: 100%;
+    min-height: 300px;
     height: 100%;
-    min-height: 450px;
+  }
+  video {
+    width: 100%;
+  }
+  @media only screen and (max-width: 1022px) {
+    .tab-img {
+      min-height: 50vw;
+    }
   }
   @media only screen and (max-width: 530px) {
     .tab-card {
       grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
     }
-    .tab-img {
-      min-height: 350px;
-    }
   }
 `;
 
-const CategoryTab = ({ catsArray }) => {
+const CategoryTab = ({ catsArray, nbrCats }) => {
   const data = useStaticQuery(graphql`
     {
-      allSanityPicture(limit: 50, sort: { fields: _createdAt, order: DESC }) {
+      pictures: allSanityPicture(
+        limit: 50
+        sort: { fields: _createdAt, order: DESC }
+      ) {
         nodes {
           slug {
             current
@@ -81,15 +89,45 @@ const CategoryTab = ({ catsArray }) => {
           }
         }
       }
+      videos: allSanityVideo(
+        limit: 50
+        sort: { fields: _createdAt, order: DESC }
+      ) {
+        nodes {
+          video {
+            asset {
+              url
+            }
+          }
+          poster {
+            asset {
+              url
+            }
+          }
+          slug {
+            current
+          }
+          categories {
+            title
+          }
+        }
+      }
     }
   `);
   const createTabsContent = () => {
     let array1 = [];
     let array2 = [];
-    let array3 = [];
     let array4 = [];
     let j = 0;
-    data.allSanityPicture.nodes.map((node) => {
+    data.pictures.nodes.map((node) => {
+      node.categories.map((cat) => {
+        array1.push({ category: cat.title, node: node });
+        return null;
+      });
+      return null;
+    });
+
+    data.videos.nodes.map((node) => {
       node.categories.map((cat) => {
         array1.push({ category: cat.title, node: node });
         return null;
@@ -104,21 +142,29 @@ const CategoryTab = ({ catsArray }) => {
         j = i;
       }
     }
-    array2.map((elem) => {
-      array3.push(elem.slice(0, 5));
-      return null;
-    });
-    array3.map((elem, index) => {
+    array2.map((elem, index) => {
       array4.push(
         <TabPanel key={index}>
           <div className={`tab-card tab-card-${index}`}>
-            {elem.map((item) => (
-              <Img
-                key={item.node.slug.current}
-                fluid={item.node.mainImage.asset.fluid}
-                className="tab-img"
-              />
-            ))}
+            {elem.map((item) =>
+              item.node.video ? (
+                <video
+                  controls
+                  preload="none"
+                  poster={item.node.poster.asset.url}
+                  key={item.node.slug.current}
+                >
+                  <source src={item.node.video.asset.url} type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              ) : (
+                <Img
+                  key={item.node.slug.current}
+                  fluid={item.node.mainImage.asset.fluid}
+                  className="tab-img"
+                />
+              )
+            )}
           </div>
         </TabPanel>
       );

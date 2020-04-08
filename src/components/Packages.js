@@ -94,7 +94,7 @@ const Container = styled.div`
 const Packages = ({ SetOrderFormIsActive, SetPackageName }) => {
   const data = useStaticQuery(graphql`
     {
-      allSanityPackages {
+      allSanityPackages(sort: { fields: price }) {
         nodes {
           price
           packageFeatures {
@@ -140,10 +140,13 @@ const Packages = ({ SetOrderFormIsActive, SetPackageName }) => {
                   <li>{feature.description}</li>
                 ))}
               </ul>
-              <button className="btn" onClick={() => {
-                SetPackageName(node.name)
-                SetOrderFormIsActive(1)
-                }}>
+              <button
+                className="btn"
+                onClick={() => {
+                  SetPackageName(node.name);
+                  SetOrderFormIsActive(1);
+                }}
+              >
                 Buy
               </button>
             </div>

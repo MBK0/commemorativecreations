@@ -24,7 +24,10 @@ const Categories = () => {
   };
   return (
     <Container>
-      <CategoryTab catsArray={createCatsArray()} />
+      <CategoryTab
+        catsArray={createCatsArray()}
+        nbrCats={data.allSanityCategory.nodes.length}
+      />
     </Container>
   );
 };
