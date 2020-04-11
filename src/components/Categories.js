@@ -33,4 +33,3 @@ const Categories = () => {
 };
 
 export default Categories;
-gi;
