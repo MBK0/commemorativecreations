@@ -19,8 +19,17 @@ const Container = styled.div`
     display: flex;
   }
   .logo {
-    width: 200px;
-    height: 90px;
+    font-family: "Kalam", sans-serif;
+    margin-right: 60px;
+    font-size: 16px;
+    font-weight: 900;
+    position: relative;
+    color: #d09900;
+    &:hover {
+      &:after {
+        transform: scaleX(0) !important;
+      }
+    }
   }
   h5 {
     font-size: 14px;
@@ -116,9 +125,15 @@ const Header = ({ headerBg }) => {
   return (
     <Container headerBg={headerBg}>
       <div className="header-wrapper">
+        <Link to="/">
+          <h5 className="logo">Commemorative Creations</h5>
+        </Link>
         <div className="nav-item">
           <Link activeClassName="active-link" to="/">
             <h5 className="nav-link"> Home</h5>
+          </Link>
+          <Link activeClassName="active-link" to="/services">
+            <h5 className="nav-link"> Services</h5>
           </Link>
           <Link activeClassName="active-link" to="/portfolio">
             <h5 className="nav-link">Portfolio</h5>

@@ -8,7 +8,7 @@ const Container = styled.div`
 const Categories = () => {
   const data = useStaticQuery(graphql`
     {
-      allSanityCategory(limit: 7, sort: { fields: title }) {
+      allSanityCategory(limit: 10, sort: { fields: title }) {
         nodes {
           title
         }
@@ -33,3 +33,4 @@ const Categories = () => {
 };
 
 export default Categories;
+gi;

@@ -51,7 +51,7 @@ function Services() {
           emulateTouch={false}
           infiniteLoop={false}
           autoPlay={true}
-          interval={7000}
+          interval={2500}
         >
           {data.allSanityPicture.nodes.map((node) => (
             <div className="slide">

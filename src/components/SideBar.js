@@ -50,6 +50,9 @@ const SideBar = ({ SideBarIsActive }) => {
           <Link to="/portfolio">
             <p>Portfolio</p>
           </Link>
+          <Link to="/services">
+            <p>Services</p>
+          </Link>
           <Link to="/about">
             <p>About Us</p>
           </Link>
