@@ -10,6 +10,7 @@ const Conatiner = styled.div`
   position: relative;
   color: #fff;
   flex-direction: column;
+  padding-top: 95px;
   .hero-bg {
     position: relative;
     height: 100vh;
@@ -22,7 +23,7 @@ const Conatiner = styled.div`
       content: "";
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.1);
     }
   }
   .hero-content {
@@ -66,12 +67,12 @@ const Conatiner = styled.div`
     max-width: 180px;
     padding: 12px 30px;
     border-radius: 7px;
-    border: 2px solid #d09900;
+    border: 2px solid #fff;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     margin-top: 40px;
-    color: #d09900;
+    color: #fff;
     background: transparent;
     transition: all 0.4s;
     &:hover {
@@ -81,7 +82,7 @@ const Conatiner = styled.div`
   }
   span {
     border-right: 0.05em solid;
-    color: #d09900;
+    color: #fff;
     animation: caret 1s steps(1) infinite;
   }
   .btn:focus {

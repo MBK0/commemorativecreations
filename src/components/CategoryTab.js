@@ -31,10 +31,10 @@ const Container = styled.div`
   .react-tabs__tab {
     font-size: 16px;
     font-weight: 500;
-    color: #fff;
+    color: #666;
   }
   .react-tabs__tab--selected {
-    color: #d09900;
+    color: #99be8f;
     background: transparent;
   }
   .tab-content {
@@ -119,16 +119,16 @@ const CategoryTab = ({ catsArray, nbrCats }) => {
     let array2 = [];
     let array4 = [];
     let j = 0;
-    data.pictures.nodes.map((node) => {
-      node.categories.map((cat) => {
+    data.pictures.nodes.map(node => {
+      node.categories.map(cat => {
         array1.push({ category: cat.title, node: node });
         return null;
       });
       return null;
     });
 
-    data.videos.nodes.map((node) => {
-      node.categories.map((cat) => {
+    data.videos.nodes.map(node => {
+      node.categories.map(cat => {
         array1.push({ category: cat.title, node: node });
         return null;
       });
@@ -146,7 +146,7 @@ const CategoryTab = ({ catsArray, nbrCats }) => {
       array4.push(
         <TabPanel key={index}>
           <div className={`tab-card tab-card-${index}`}>
-            {elem.map((item) =>
+            {elem.map(item =>
               item.node.video ? (
                 <video
                   controls
@@ -176,7 +176,7 @@ const CategoryTab = ({ catsArray, nbrCats }) => {
     <Container>
       <Tabs>
         <TabList>
-          {catsArray.map((elem) => (
+          {catsArray.map(elem => (
             <Tab key={elem}>{elem}</Tab>
           ))}
         </TabList>

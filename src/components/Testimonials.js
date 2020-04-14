@@ -8,11 +8,11 @@ const Container = styled.div`
   padding: 5em 10px;
   margin: auto;
   width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url(${require("../images/tests-bg.jpg")});
   background-position: center;
   background-size: cover;
-  color: #fff;
+  color: #666;
   h2 {
     display: block;
     margin: auto;
@@ -46,7 +46,7 @@ const Container = styled.div`
   }
   .name {
     text-align: right;
-    color: #d09900;
+    color: #99be8f;
     margin-top: 3.2em;
     font-size: 16px;
     font-weight: 600;
@@ -77,16 +77,16 @@ function Testimonials() {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 1,
+      items: 1
     },
     tablet: {
       breakpoint: { max: 1024, min: 700 },
-      items: 1,
+      items: 1
     },
     mobile: {
       breakpoint: { max: 700, min: 0 },
-      items: 1,
-    },
+      items: 1
+    }
   };
   const data = useStaticQuery(graphql`
     {
@@ -119,7 +119,7 @@ function Testimonials() {
           dotListClass="custom-dot-list-style"
           itemClass="carousel-item-padding-40-px"
         >
-          {data.allSanityTestimonials.nodes.map((node) => (
+          {data.allSanityTestimonials.nodes.map(node => (
             <div className="test-box" key={node.name}>
               <svg
                 stroke="currentColor"

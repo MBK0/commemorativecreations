@@ -3,7 +3,6 @@ import Layout from "../templates/DefaultLayout";
 import Seo from "../components/seo";
 import Hero from "../components/Hero";
 import Testimonials from "../components/Testimonials";
-import Services from "../components/Services";
 import Story from "../components/Story";
 import Packages from "../components/Packages";
 import OrderForm from "../components/OrderForm";
@@ -11,7 +10,7 @@ import styled from "styled-components";
 const Container = styled.div`
   position: relative;
 `;
-const IndexPage = ({ data }) => {
+const IndexPage = () => {
   const [orderFormIsActive, SetOrderFormIsActive] = useState(0);
   const [packageName, SetPackageName] = useState(0);
   return (
@@ -19,14 +18,19 @@ const IndexPage = ({ data }) => {
       <Seo title="Home" />
       <Hero />
       <Story />
-      <Services />
-      <Packages SetOrderFormIsActive={SetOrderFormIsActive} SetPackageName={SetPackageName}/>
+      <Packages
+        SetOrderFormIsActive={SetOrderFormIsActive}
+        SetPackageName={SetPackageName}
+      />
       <Testimonials />
       <Container
         className="order-form"
         style={orderFormIsActive ? { display: "block" } : { display: "none" }}
       >
-        <OrderForm packageName={packageName} SetOrderFormIsActive={SetOrderFormIsActive}/>
+        <OrderForm
+          packageName={packageName}
+          SetOrderFormIsActive={SetOrderFormIsActive}
+        />
       </Container>
     </Layout>
   );

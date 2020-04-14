@@ -14,7 +14,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding-top: 97px;
-  background: #070707;
+  background: #fff;
   h3 {
     display: block;
     margin: auto;
@@ -27,16 +27,16 @@ const Container = styled.div`
     width: 100%;
     font-weight: 700;
     box-sizing: border-box;
-    color: #fff;
+    color: #333;
   }
   label {
     position: absolute;
     font-size: 1px;
     padding: 0;
-    color: #070707;
+    color: #fff;
   }
   .contact-form-wrapper {
-    background: #070707;
+    background: #fff;
     width: 100%;
   }
   .email-form {
@@ -53,7 +53,7 @@ const Container = styled.div`
     color: #989a9e;
     background-color: transparent;
     resize: none;
-    border: 1px solid #fff;
+    border: 1px solid #ccc;
     outline: none;
     border-radius: 4px;
     font-size: 16px;
@@ -84,19 +84,15 @@ const Container = styled.div`
     max-width: 180px;
     padding: 12px 30px;
     border-radius: 7px;
-    border: 2px solid #d09900;
+    border: 2px solid #99be8f;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     margin-top: 40px;
-    color: #d09900;
+    color: #99be8f;
     background: transparent;
     transition: all 0.4s;
     margin-bottom: 5em;
-    &:hover {
-      color: #fff;
-      border: 2px solid #fff;
-    }
   }
   .mapouter,
   iframe {
@@ -106,22 +102,6 @@ const Container = styled.div`
   }
   .mapouter {
     height: 450px;
-    &::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      transition: all 0.5s;
-      left: 0;
-      top: 0;
-      background: rgba(0, 0, 0, 0.5);
-    }
-    &:hover {
-      &::after {
-        background: rgba(0, 0, 0, 0);
-        z-index: -1;
-      }
-    }
   }
   @media only screen and (max-width: 910px) {
     h1 {
@@ -164,7 +144,7 @@ const Contact = () => {
     e.preventDefault();
   };
   return (
-    <Layout headerBg="#070707">
+    <Layout headerBg="#fff">
       <Seo title="Contact" />
       <Container>
         <div class="mapouter">

@@ -2,11 +2,11 @@ import React from "react";
 import styled from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 const Container = styled.div`
-  padding: 5em 10px 8em 10px;
+  padding: 9em 10px 8em 10px;
   text-align: center;
   margin: auto;
   width: 100%;
-  background: #0d0d0d;
+  background: #fff;
   h2 {
     display: block;
     margin: auto;
@@ -19,7 +19,7 @@ const Container = styled.div`
     width: 100%;
     font-weight: 700;
     box-sizing: border-box;
-    color: #fff;
+    color: #333;
   }
   .insta-grid {
     display: grid;
@@ -35,7 +35,7 @@ const Container = styled.div`
     height: 100%;
   }
   .insta-info {
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.3);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -64,7 +64,7 @@ const Container = styled.div`
     font-size: 12px;
     font-weight: 400;
     text-align: center;
-    color: #ccc;
+    color: #fff;
     line-height: 1.5em;
   }
   img {
@@ -122,7 +122,7 @@ function Services() {
     <Container>
       <h2>Our Services</h2>
       <div className="insta-grid">
-        {data.service.nodes.map((node) => (
+        {data.service.nodes.map(node => (
           <div className="insta" key={node.video.asset.url}>
             <video controls preload="none" poster={node.poster.asset.url}>
               <source src={node.video.asset.url} type="video/mp4" />
