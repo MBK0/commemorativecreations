@@ -5,8 +5,8 @@ import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 const Container = styled.div`
   padding: 12em 10px;
-  background: #fafafa;
-  color: #666;
+  background: #0d0d0d;
+  color: #fff;
   .wrapper {
     max-width: 1300px;
     margin: auto;
@@ -28,7 +28,7 @@ const Container = styled.div`
     width: 100%;
     font-weight: 700;
     box-sizing: border-box;
-    color: #333;
+    color: #fff;
   }
   p {
     font-size: 16px !important;
@@ -36,6 +36,12 @@ const Container = styled.div`
     font-weight: 400;
     margin-bottom: 20px;
     text-align: justify;
+  }
+  h3 {
+    font-weight: 400;
+    line-height: 1.6em;
+    text-align: justify;
+    font-size: 16px;
   }
   video {
     width: 100%;

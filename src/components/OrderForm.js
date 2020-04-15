@@ -10,7 +10,7 @@ const Container = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #fff;
+  background: #0d0d0d;
   position: fixed;
   z-index: 25;
   left: 50%;
@@ -29,9 +29,9 @@ const Container = styled.div`
     width: 100%;
     font-weight: 700;
     box-sizing: border-box;
-    color: #333;
+    color: #fff;
     span {
-      color: #99be8f;
+      color: #d09900;
     }
   }
   label {
@@ -51,10 +51,10 @@ const Container = styled.div`
     width: 100%;
     height: 20px;
     margin: 15px 0px;
-    color: #989a9e;
+    color: #d09900;
     background-color: transparent;
     resize: none;
-    border: 1px solid #ccc;
+    border: 1px solid #fff;
     outline: none;
     border-radius: 4px;
     font-size: 16px;
@@ -81,12 +81,12 @@ const Container = styled.div`
     max-width: 180px;
     padding: 12px 30px;
     border-radius: 7px;
-    border: 2px solid #99be8f;
+    border: 2px solid #d09900;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     margin-top: 40px;
-    color: #99be8f;
+    color: #d09900;
     background: transparent;
     transition: all 0.4s;
   }
@@ -94,7 +94,7 @@ const Container = styled.div`
     position: absolute;
     top: 2em;
     right: 2em;
-    fill: #99be8f;
+    fill: #d09900;
     cursor: pointer;
   }
   @media only screen and (max-width: 910px) {
@@ -107,9 +107,9 @@ const Container = styled.div`
   }
 `;
 
-const encode = data => {
+const encode = (data) => {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
     .join("&");
 };
 const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
@@ -117,14 +117,14 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
     firstname: "",
     lastname: "",
     email: "",
-    phone: ""
+    phone: "",
   });
   const [popupState, setPopup] = useState("walo");
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...contact })
+      body: encode({ "form-name": "contact", ...contact }),
     })
       .then(() => {
         setPopup("sucess");
@@ -168,9 +168,9 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
           className="form-input"
           required
           value={contact.name}
-          onChange={e => {
+          onChange={(e) => {
             const val = e.target.value;
-            setState(prevState => {
+            setState((prevState) => {
               return { ...prevState, name: val };
             });
           }}
@@ -184,9 +184,9 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
           className="form-input"
           required
           value={contact.email}
-          onChange={e => {
+          onChange={(e) => {
             const val = e.target.value;
-            setState(prevState => {
+            setState((prevState) => {
               return { ...prevState, email: val };
             });
           }}
@@ -200,9 +200,9 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
           placeholder="Phone number"
           value={contact.phone}
           required
-          onChange={e => {
+          onChange={(e) => {
             const val = e.target.value;
-            setState(prevState => {
+            setState((prevState) => {
               return { ...prevState, phone: val };
             });
           }}

@@ -4,8 +4,8 @@ import { graphql, useStaticQuery } from "gatsby";
 const Container = styled.div`
   padding: 10em 10px;
   width: 100%;
-  background: #fafafa;
-  color: #666;
+  background: #070707;
+  color: #fff;
   .wrapper {
     max-width: 1400px;
     margin: auto;
@@ -22,7 +22,7 @@ const Container = styled.div`
     width: 100%;
     font-weight: 700;
     box-sizing: border-box;
-    color: #333;
+    color: #fff;
   }
   .subtitle {
     text-align: center;
@@ -43,13 +43,13 @@ const Container = styled.div`
     max-width: 180px;
     padding: 8px 30px;
     border-radius: 7px;
-    border: 2px solid #99be8f;
+    border: 2px solid #d09900;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     margin-top: 40px;
     margin-bottom: 40px;
-    color: #99be8f;
+    color: #d09900;
     background: transparent;
     transition: all 0.4s;
     &:hover {
@@ -62,11 +62,11 @@ const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 2px solid #99be8f;
+    border: 2px solid #d09900;
     margin: 2em auto;
   }
   span {
-    color: #99be8f;
+    color: #d09900;
     font-weight: 600;
   }
   h3,
@@ -82,7 +82,7 @@ const Container = styled.div`
   .package-top {
     width: 100%;
     display: flex;
-    background: #99be8f;
+    background: #d09900;
     justify-content: space-around;
     padding: 12px 5px;
     margin-bottom: 40px;
@@ -119,7 +119,7 @@ const Packages = ({ SetOrderFormIsActive, SetPackageName }) => {
           about.
         </p>
         <div className="packages">
-          {data.allSanityPackages.nodes.map(node => (
+          {data.allSanityPackages.nodes.map((node) => (
             <div className="package">
               <div className="package-top">
                 <h3>{node.name}</h3>
@@ -136,7 +136,7 @@ const Packages = ({ SetOrderFormIsActive, SetPackageName }) => {
                   Approximately <span>{node.nbrminutes}</span> minutes of
                   viewing & music to accompany the photo slideshow
                 </li>
-                {node.packageFeatures.map(feature => (
+                {node.packageFeatures.map((feature) => (
                   <li>{feature.description}</li>
                 ))}
               </ul>

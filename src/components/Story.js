@@ -4,8 +4,8 @@ import { graphql, useStaticQuery } from "gatsby";
 import BlockContent from "./block-content";
 const Container = styled.div`
   padding: 10em 10px;
-  background: #fff;
-  color: #666;
+  background: #070707;
+  color: #fff;
   .wrapper {
     display: flex;
     max-width: 1700px;
@@ -28,7 +28,7 @@ const Container = styled.div`
     width: 100%;
     font-weight: 700;
     box-sizing: border-box;
-    color: #333;
+    color: #fff;
   }
   p {
     font-size: 16px !important;

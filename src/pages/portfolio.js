@@ -11,7 +11,7 @@ import Categories from "../components/Categories";
 const Container = styled.div`
   text-align: center;
   padding-top: 97px;
-  background: #fff;
+  background: #070707;
   .bg {
     height: 500px;
   }
@@ -53,7 +53,7 @@ function Services() {
           autoPlay={true}
           interval={2500}
         >
-          {data.allSanityPicture.nodes.map(node => (
+          {data.allSanityPicture.nodes.map((node) => (
             <div className="slide">
               <Img
                 fluid={node.mainImage.asset.fluid}

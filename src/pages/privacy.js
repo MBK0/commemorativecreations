@@ -5,7 +5,7 @@ import styled from "styled-components";
 import BlockContent from "../components/block-content";
 const Container = styled.div`
   padding: 15em 10px 100px 10px;
-  background: #fff;
+  background: #070707;
   max-width: 1100px;
   margin: auto;
   h2 {

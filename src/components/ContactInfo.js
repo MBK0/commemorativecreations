@@ -6,8 +6,8 @@ const Container = styled.div`
   display: flex;
   justify-content: space-evenly;
   flex-direction: row;
-  background: #fafafa;
-  color: #666;
+  background: #0d0d0d;
+  color: #fff;
   padding: 60px 10px;
   align-items: center;
   flex-wrap: wrap;
@@ -19,7 +19,7 @@ const Container = styled.div`
     flex-direction: column;
   }
   svg {
-    fill: #99be8f;
+    fill: #d09900;
     margin-bottom: 20px;
   }
   p {

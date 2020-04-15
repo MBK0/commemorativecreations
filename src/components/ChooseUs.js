@@ -7,7 +7,7 @@ const Container = styled.div`
   text-align: center;
   margin: auto;
   width: 100%;
-  background: #fff;
+  background: #070707;
   p {
     max-width: 1230px;
     font-family: Roboto, sans-serif !important;
@@ -33,7 +33,7 @@ const Container = styled.div`
     width: 100%;
     font-weight: 700;
     box-sizing: border-box;
-    color: #333;
+    color: #fff;
     position: relative;
   }
   .services-grid {
@@ -52,11 +52,11 @@ const Container = styled.div`
       font-weight: 700;
       margin-bottom: 1em;
       text-align: left;
-      color: #333;
+      color: #fff;
       font-size: 20px;
     }
     p {
-      color: #666;
+      color: #fff;
       padding: 0;
       font-size: 13px;
       font-weight: 400;
@@ -65,7 +65,7 @@ const Container = styled.div`
     }
   }
   svg {
-    fill: #99be8f;
+    fill: #d09900;
     margin-bottom: 2em;
   }
   @media only screen and (max-width: 800px) {

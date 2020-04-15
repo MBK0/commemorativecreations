@@ -13,8 +13,7 @@ const Container = styled.div`
     z-index: 7;
     width: 100%;
     transition: all 0.5s;
-    background: ${props => (props.headerBg ? props.headerBg : "#fff")};
-    box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+    background: ${(props) => (props.headerBg ? props.headerBg : "transparent")};
   }
   .nav-item {
     display: flex;
@@ -25,7 +24,7 @@ const Container = styled.div`
     font-size: 16px;
     font-weight: 900;
     position: relative;
-    color: #99be8f;
+    color: #d09900;
     &:hover {
       &:after {
         transform: scaleX(0) !important;
@@ -36,7 +35,7 @@ const Container = styled.div`
     font-size: 14px;
     margin: 0px 20px;
     font-weight: 500;
-    color: #333;
+    color: #fff;
     cursor: pointer;
     padding: 36px 0px;
     position: relative;
@@ -48,7 +47,7 @@ const Container = styled.div`
       display: block;
       content: "";
       transform: scaleX(0);
-      border-bottom: 4px solid #99be8f;
+      border-bottom: 4px solid #d09900;
       -webkit-transition: -webkit-transform 250ms ease-in-out;
       transition: -webkit-transform 250ms ease-in-out;
       transition: transform 250ms ease-in-out;
@@ -62,7 +61,7 @@ const Container = styled.div`
   }
   .active-link {
     h5 {
-      color: #99be8f !important;
+      color: #d09900 !important;
       font-weight: 600;
       &:after {
         transform: scaleX(1);
@@ -70,7 +69,7 @@ const Container = styled.div`
     }
   }
   .sticky-header {
-    background: #fff;
+    background: #070707;
     animation: animate 0.8s ease;
   }
   @keyframes animate {

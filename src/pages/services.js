@@ -4,7 +4,7 @@ import Layout from "../templates/DefaultLayout";
 import styled from "styled-components";
 const Container = styled.div`
   padding-top: 95px;
-  background: #000;
+  background: #070707;
 `;
 const services = () => {
   return (

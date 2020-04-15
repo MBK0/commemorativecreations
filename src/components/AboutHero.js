@@ -59,12 +59,12 @@ const Container = styled.div`
     max-width: 180px;
     padding: 12px 30px;
     border-radius: 7px;
-    border: 2px solid #99be8f;
+    border: 2px solid #d09900;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
     margin-top: 40px;
-    color: #99be8f;
+    color: #d09900;
     background: transparent;
     transition: all 0.4s;
     &:hover {

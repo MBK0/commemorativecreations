@@ -6,7 +6,7 @@ const Container = styled.div`
   text-align: center;
   margin: auto;
   width: 100%;
-  background: #fff;
+  background: #0d0d0d;
   h2 {
     display: block;
     margin: auto;
@@ -19,7 +19,7 @@ const Container = styled.div`
     width: 100%;
     font-weight: 700;
     box-sizing: border-box;
-    color: #333;
+    color: #fff;
   }
   .insta-grid {
     display: grid;
@@ -35,7 +35,7 @@ const Container = styled.div`
     height: 100%;
   }
   .insta-info {
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.5);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -122,7 +122,7 @@ function Services() {
     <Container>
       <h2>Our Services</h2>
       <div className="insta-grid">
-        {data.service.nodes.map(node => (
+        {data.service.nodes.map((node) => (
           <div className="insta" key={node.video.asset.url}>
             <video controls preload="none" poster={node.poster.asset.url}>
               <source src={node.video.asset.url} type="video/mp4" />

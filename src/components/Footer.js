@@ -5,7 +5,7 @@ const Container = styled.div`
   padding: 30px 0;
   color: rgba(255, 255, 255, 0.7);
   font-size: 14px;
-  background: #b6ae9a;
+  background: #070707;
   width: 100%;
   max-width: 1920px;
   margin: auto;
@@ -25,11 +25,11 @@ const Container = styled.div`
     margin: 0em 0.5em;
   }
   .name {
-    color: #fff;
+    color: #d09900;
     font-weight: 500;
   }
   svg {
-    fill: #fff;
+    fill: #d09900;
     margin: 0 0.5em;
     cursor: pointer;
   }
