@@ -208,7 +208,7 @@ const Hero = () => {
       <div className="hero-content">
         <h1 className="hero-h1">{data.allSanityHome.nodes[0].title}</h1>
         <h6 className="hero-h6">
-          Making Your Dreams Come True With Our{" "}
+          Making Your Videos Come True With Our{" "}
           <span className="hero-span">Creativity</span>
         </h6>
         <button className="btn">
