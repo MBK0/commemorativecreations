@@ -216,11 +216,11 @@ const Hero = () => {
           <Link to="/contact">Get In Touch</Link>
         </button>
       </div>
-      <div class="scroll-icon">
+      <div className="scroll-icon">
         <a href="#about">
-          <div class="mouse"></div>
+          <div className="mouse"></div>
         </a>
-        <div class="end-top"></div>
+        <div className="end-top"></div>
       </div>
     </Conatiner>
   );
