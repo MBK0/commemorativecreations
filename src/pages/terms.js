@@ -37,7 +37,7 @@ const Terms = () => {
     }
   `);
   return (
-    <Layout>
+    <Layout headerBg="#000">
       <Container>
         <h2>{data.allSanityTerms.nodes[0].title}</h2>
         <BlockContent blocks={data.allSanityTerms.nodes[0]._rawText} />
