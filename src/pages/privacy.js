@@ -5,7 +5,6 @@ import styled from "styled-components";
 import BlockContent from "../components/block-content";
 const Container = styled.div`
   padding: 15em 10px 100px 10px;
-  background: #070707;
   max-width: 1100px;
   margin: auto;
   h2 {
@@ -38,7 +37,7 @@ const Privacy = () => {
     }
   `);
   return (
-    <Layout>
+    <Layout headerBg="#000">
       <Container>
         <h2>{data.allSanityPrivacy.nodes[0].title}</h2>
         <BlockContent blocks={data.allSanityPrivacy.nodes[0]._rawText} />
