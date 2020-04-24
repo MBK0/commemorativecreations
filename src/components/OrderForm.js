@@ -122,6 +122,9 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
   const [popupState, setPopup] = useState("walo");
   const handleSubmit = (e) => {
     document.getElementById("package").value = packageName;
+    setState((prevState) => {
+      return { ...prevState, package: packageName };
+    });
     console.log(document.getElementById("package"));
     fetch("/", {
       method: "POST",
