@@ -211,6 +211,8 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
             });
           }}
         />
+        <label htmlFor="package">Package</label>
+        <input type="hidden" name="package" value={packageName} id="package" />
         <button type="submit" id="submit">
           Submit
         </button>
