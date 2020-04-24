@@ -160,6 +160,7 @@ const Hero = () => {
       allSanityHome(sort: { fields: _updatedAt, order: DESC }, limit: 1) {
         nodes {
           title
+          subtitle
           mainImage {
             asset {
               fluid(maxWidth: 1920, maxHeight: 1080) {
@@ -208,7 +209,7 @@ const Hero = () => {
       <div className="hero-content">
         <h1 className="hero-h1">{data.allSanityHome.nodes[0].title}</h1>
         <h6 className="hero-h6">
-          Making Your Videos Come True With Our{" "}
+          {data.allSanityHome.nodes[0].subtitle}{" "}
           <span className="hero-span">Creativity</span>
         </h6>
         <button className="btn">
