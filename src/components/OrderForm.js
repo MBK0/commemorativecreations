@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Popup from "../components/popup";
 import styled from "styled-components";
 
@@ -121,9 +121,8 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
   });
   const [popupState, setPopup] = useState("walo");
   const handleSubmit = (e) => {
-    setState((prevState) => {
-      return { ...prevState, package: packageName };
-    });
+    document.getElementById("package").value = packageName;
+    console.log(document.getElementById("package"));
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -138,6 +137,13 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
 
     e.preventDefault();
   };
+  useEffect(() => {
+    if (order.package == "") {
+      setState((prevState) => {
+        return { ...prevState, package: packageName };
+      });
+    }
+  }, []);
   return (
     <Container>
       <h3>
@@ -212,7 +218,12 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
           }}
         />
         <label htmlFor="package">Package</label>
-        <input type="hidden" name="package" value={packageName} id="package" />
+        <input
+          type="hidden"
+          name="package"
+          value={order.packageName}
+          id="package"
+        />
         <button type="submit" id="submit">
           Submit
         </button>
