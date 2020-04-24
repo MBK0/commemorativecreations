@@ -113,18 +113,19 @@ const encode = (data) => {
     .join("&");
 };
 const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
-  const [contact, setState] = useState({
+  const [order, setState] = useState({
     firstname: "",
     lastname: "",
     email: "",
     phone: "",
+    package: packageName,
   });
   const [popupState, setPopup] = useState("walo");
   const handleSubmit = (e) => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ "form-name": "contact", ...contact }),
+      body: encode({ "form-name": "order", ...order }),
     })
       .then(() => {
         setPopup("sucess");
@@ -151,14 +152,14 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
         <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm5.5 16.084l-1.403 1.416-4.09-4.096-4.102 4.096-1.405-1.405 4.093-4.092-4.093-4.098 1.405-1.405 4.088 4.089 4.091-4.089 1.416 1.403-4.092 4.087 4.092 4.094z" />
       </svg>
       <form
-        name="contact"
+        name="order"
         method="POST"
         data-netlify="true"
         data-netlify-honeypot="bot-field"
         className="email-form"
         onSubmit={handleSubmit}
       >
-        <input type="hidden" name="form-name" value="contact" />
+        <input type="hidden" name="form-name" value="order" />
         <label htmlFor="name">i</label>
         <input
           type="text"
@@ -167,7 +168,7 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
           placeholder="Name"
           className="form-input"
           required
-          value={contact.name}
+          value={order.name}
           onChange={(e) => {
             const val = e.target.value;
             setState((prevState) => {
@@ -183,7 +184,7 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
           placeholder="Email"
           className="form-input"
           required
-          value={contact.email}
+          value={order.email}
           onChange={(e) => {
             const val = e.target.value;
             setState((prevState) => {
@@ -198,7 +199,7 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
           id="phone"
           className="form-input"
           placeholder="Phone number"
-          value={contact.phone}
+          value={order.phone}
           required
           onChange={(e) => {
             const val = e.target.value;
