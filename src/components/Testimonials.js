@@ -111,7 +111,7 @@ function Testimonials() {
           ssr={true}
           infinite={true}
           autoPlay={true}
-          autoPlaySpeed={7000}
+          autoPlaySpeed={3000}
           keyBoardControl={true}
           customTransition="all 1.5s"
           transitionDuration={1000}
