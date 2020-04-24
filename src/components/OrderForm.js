@@ -121,11 +121,6 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
   });
   const [popupState, setPopup] = useState("walo");
   const handleSubmit = (e) => {
-    document.getElementById("package").value = packageName;
-    setState((prevState) => {
-      return { ...prevState, package: packageName };
-    });
-    console.log(document.getElementById("package"));
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -140,19 +135,12 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
 
     e.preventDefault();
   };
-  useEffect(() => {
-    if (order.package == "") {
-      setState((prevState) => {
-        return { ...prevState, package: packageName };
-      });
-    }
-  }, []);
+
   return (
     <Container>
       <h3>
         Order For The <span>{packageName}</span> Package
       </h3>
-      {console.log(order)}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="36"
@@ -184,7 +172,7 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
           onChange={(e) => {
             const val = e.target.value;
             setState((prevState) => {
-              return { ...prevState, name: val };
+              return { ...prevState, name: val, package: packageName };
             });
           }}
         />
