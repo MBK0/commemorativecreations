@@ -120,7 +120,7 @@ const Packages = ({ SetOrderFormIsActive, SetPackageName }) => {
         </p>
         <div className="packages">
           {data.allSanityPackages.nodes.map((node) => (
-            <div className="package">
+            <div className="package" key={node.name}>
               <div className="package-top">
                 <h3>{node.name}</h3>
                 <p className="price">
@@ -137,7 +137,7 @@ const Packages = ({ SetOrderFormIsActive, SetPackageName }) => {
                   viewing & music to accompany the photo slideshow
                 </li>
                 {node.packageFeatures.map((feature) => (
-                  <li>{feature.description}</li>
+                  <li key={feature.description}>{feature.description}</li>
                 ))}
               </ul>
               <button
