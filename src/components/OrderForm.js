@@ -114,14 +114,16 @@ const encode = (data) => {
 };
 const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
   const [order, setState] = useState({
-    firstname: "",
-    lastname: "",
+    name: "",
     email: "",
     phone: "",
-    package: packageName,
+    package: "",
   });
   const [popupState, setPopup] = useState("walo");
   const handleSubmit = (e) => {
+    setState((prevState) => {
+      return { ...prevState, package: packageName };
+    });
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -141,6 +143,7 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
       <h3>
         Order For The <span>{packageName}</span> Package
       </h3>
+      {console.log(order)}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="36"
@@ -160,7 +163,7 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
         onSubmit={handleSubmit}
       >
         <input type="hidden" name="form-name" value="order" />
-        <label htmlFor="name">i</label>
+        <label htmlFor="name">Name</label>
         <input
           type="text"
           name="name"
@@ -176,7 +179,7 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
             });
           }}
         />
-        <label htmlFor="email">i</label>
+        <label htmlFor="email">Email</label>
         <input
           type="text"
           name="email"
@@ -192,7 +195,7 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
             });
           }}
         />
-        <label htmlFor="phone">i</label>
+        <label htmlFor="phone">phone Number</label>
         <input
           type="text"
           name="phone"
@@ -208,7 +211,6 @@ const OrderForm = ({ packageName, SetOrderFormIsActive }) => {
             });
           }}
         />
-
         <button type="submit" id="submit">
           Submit
         </button>
