@@ -60,7 +60,6 @@ const Container = styled.div`
   .package {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     border: 2px solid #d09900;
     margin: 2em auto;
