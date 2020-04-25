@@ -189,7 +189,7 @@ const Contact = () => {
           >
             <input type="hidden" name="form-name" value="contact" />
             <div className="inputs-flex">
-              <label htmlFor="name">i</label>
+              <label htmlFor="name">Name</label>
               <input
                 type="text"
                 name="name"
@@ -205,7 +205,7 @@ const Contact = () => {
                   });
                 }}
               />
-              <label htmlFor="email">i</label>
+              <label htmlFor="email">Email</label>
               <input
                 type="text"
                 name="email"
@@ -222,7 +222,7 @@ const Contact = () => {
                 }}
               />
             </div>
-            <label htmlFor="message">i</label>
+            <label htmlFor="message">Message</label>
             <textarea
               type="text"
               name="message"
